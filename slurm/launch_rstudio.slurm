@@ -1,11 +1,11 @@
 #!/bin/bash
 #SBATCH -J rstudio
-#SBATCH -t 1:00:00               # time
+#SBATCH -t 7:00:00               # time
 #SBATCH -o slurm_output/%j-rstudio.out
-#SBATCH -p normal,UV,short
+#SBATCH -p normal,UV
 #SBATCH -A iidd          # your account code
 #SBATCH -n 1
-#SBATCH -c 1
+#SBATCH -c 20
 #SBATCH --mem=120GB
 
 export PASSWORD=$(openssl rand -base64 15)
@@ -43,7 +43,7 @@ module load singularity/3.4.1
 
 # This example bind mounts the /cxfs directory on the host into the Singularity container.
 # By default the only host file systems mounted within the container are $HOME, /tmp, /proc, /sys, and /dev.
-srun singularity exec --bind=/cxfs --bind .mytmp:/tmp --bind .myrun:/run rstudio_4.0.2.sif \
+srun singularity exec --bind=/cxfs --bind .mytmp:/tmp --bind .myrun:/run national_site_reach_v0.1.sif \
     rserver --www-port ${PORT} --auth-none=0 --auth-pam-helper-path=pam-helper \
     --server-working-dir=${START_DIR}
 printf 'rserver exited' 1>&2
