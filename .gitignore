@@ -7,3 +7,4 @@ slurm_output/*
 .mytmp/*
 .myrun/*
 in/NHDPlusNationalData/*
+in/*.7z

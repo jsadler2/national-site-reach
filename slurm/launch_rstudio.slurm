@@ -1,12 +1,13 @@
 #!/bin/bash
 #SBATCH -J rstudio
-#SBATCH -t 7:00:00               # time
-#SBATCH -o slurm_output/%j-rstudio.out
-#SBATCH -p normal,UV
+#SBATCH -t 2:00:00               # time
+#SBATCH -o slurm_output/rstudio.out
+#SBATCH -p normal,UV,short
 #SBATCH -A iidd          # your account code
 #SBATCH -n 1
 #SBATCH -c 20
 #SBATCH --mem=120GB
+#SBATCH --mail-user=wwatkins@usgs.gov
 
 export PASSWORD=$(openssl rand -base64 15)
 
