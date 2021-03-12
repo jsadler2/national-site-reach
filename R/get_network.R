@@ -37,12 +37,11 @@ download_nhd <- function(out_ind) {
 #' dropping Z/M dimensions, reprojecting, and standardizing column names
 get_nhdplus_flowpaths <- function(out_ind, in_ind) {
   gdb_directory <- as_data_file(in_ind)
-  
   #could extract this to a yml file
   nhd_columns_keep <- c('COMID', 'GNIS_ID', 'GNIS_NAME',
                         'LENGTHKM', 'REACHCODE', 'FTYPE',
                         'FCODE', 'StreamOrde', 'ArbolateSu',
-                        'Shape')
+                        'Shape', 'Divergence', 'ToMeas', 'FromMeas')
   flowline_network <- st_read(dsn = gdb_directory,
                               layer = 'NHDFlowline_Network') %>% 
     select(all_of(nhd_columns_keep)) %>% 
@@ -65,7 +64,7 @@ get_nhdplus_flowpaths <- function(out_ind, in_ind) {
 #' to match what is used in processing steps (currently using geofabric names)
 filter_rename_nhdplus <- function(in_ind, out_ind, feature_types) {
   out_network <- readRDS(as_data_file(in_ind)) %>% 
-    filter(FTYPE %in% feature_types) %>% 
+    #filter(FTYPE %in% feature_types) %>% 
     rename(seg_id = COMID, to_seg = TOCOMID)
   saveRDS(out_network, as_data_file(out_ind))
   sc_indicate(out_ind)
