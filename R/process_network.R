@@ -1,11 +1,16 @@
-find_endpoints <- function(in_ind, out_ind) {
+#' @param separate logical should the endpoints column be broken into separate first/last point columns?  
+#' For NHDPlusV2 these are up/downstream points based on QAQC steps in manual, Page 102 Check 13
+find_endpoints <- function(in_ind, out_ind, separate = FALSE) {
   
   network_reaches <- readRDS(as_data_file(in_ind)) #%>% slice_sample(prop=0.5) 
   print(pryr::object_size(network_reaches))
   message('read done')
   #should take about 9 minutes for national, single-threaded with geofabric
   #cores_to_use <- detectCores() - 1
+  #TODO: dynamically set number of cores based on RAM per cpu
+  #Seems to need at least 8-10 GB/core; 6 doesn't work, 12 does
   cores_to_use <- 10
+  file.remove('cluster_out.txt')
   cl <- makeCluster(cores_to_use, setup_strategy = "sequential",
                     outfile = 'cluster_out.txt')
   message('cluster set up on ', cores_to_use, ' cores')
@@ -14,12 +19,21 @@ find_endpoints <- function(in_ind, out_ind) {
   #TODO: could drop network_reaches object here, check size of list, garbage collect in add_endpoints?
   clusterEvalQ(cl, library(sf))
   clusterEvalQ(cl, library(dplyr))
-  add_endpoints <- function(df){
-    df %>% rowwise() %>%
-      mutate(end_points = sf::st_cast(Shape, "POINT") %>% {list(c(head(.,1),tail(.,1)))})
+  add_endpoints <- function(df, separate){
+    if(separate) {
+      df %>% rowwise() %>%
+        mutate(shape_points = list(sf::st_cast(Shape, "POINT")),
+               first_point = head(shape_points, 1),
+               last_point = tail(shape_points, 1)) %>% 
+        select(-shape_points)
+    } else {
+      df %>% rowwise() %>% 
+        mutate(end_points = sf::st_cast(Shape, "POINT")) %>% 
+        {list(c(head(., 1), tail(.,1)))}
+    }
   }
   message('starting parallel...')
-  network_applied <- parLapply(cl, X = network_reaches_split, fun = add_endpoints)
+  network_applied <- parLapply(cl, X = network_reaches_split, fun = add_endpoints, separate = separate)
   stopCluster(cl)
   message('binding cluster output...')
   #TODO: assert that no NAs in endpoints
@@ -28,10 +42,9 @@ find_endpoints <- function(in_ind, out_ind) {
   sc_indicate(out_ind)
 }
 
-get_reach_direction <- function(seg_ids, reaches_bounded, assume_upstream_first) {
-  seg_ids_df <- dplyr::filter(reaches_bounded, seg_id %in% seg_ids) %>% 
-    slice_sample(n = 10000)
-  if(!assume_upstream_first)
+get_reach_direction <- function(seg_ids, reaches_bounded) {
+  seg_ids_df <- dplyr::filter(reaches_bounded, seg_id %in% seg_ids) 
+  
   reaches_bounded_direction_subset <- seg_ids_df %>%
     dplyr::mutate(
       which_end_up = sapply(seg_id, function(segid) {
@@ -85,11 +98,14 @@ add_missing_reference_reaches <- function(seg_df_chunk, full_reach_df) {
 }
 
 
-compute_up_down_stream_endpoints <- function(reaches_bounded_ind, out_ind) {
+compute_up_down_stream_endpoints <- function(reaches_bounded_ind, out_ind,
+                                             assume_upstream_first = FALSE) {
   
   reaches_bounded <- readRDS(as_data_file(reaches_bounded_ind)) %>%
     ungroup() 
   
+  if(!assume_upstream_first) {
+  warning("The reach direction code has not been tested with NHDPlus, and may not scale well")
   #TODO: set up chunks using from_seg
   just_seg_ids_to <- select(reaches_bounded, seg_id, to_seg, Divergence) #%>% 
     #filter(Divergence < 2) 
@@ -140,6 +156,10 @@ compute_up_down_stream_endpoints <- function(reaches_bounded_ind, out_ind) {
   stopCluster(cl)
   message('parallel done')
   results_bound <- data.table::rbindlist(cluster_results)
+  } else { #don't need to parallelize?
+    #put endpoints separately from the start, then can just rename
+    results_bound <- reaches_bounded %>% rename(up_point = first_point, down_point = last_point)
+  }
   
   shape_crs <- st_crs(results_bound$Shape)
   reaches_direction <- results_bound %>%
@@ -151,3 +171,4 @@ compute_up_down_stream_endpoints <- function(reaches_bounded_ind, out_ind) {
   saveRDS(reaches_direction, file = as_data_file(out_ind))
   sc_indicate(out_ind)
 }
+

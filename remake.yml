@@ -1,0 +1,65 @@
+packages:
+  - scipiper
+  - dplyr
+  - sf
+  - parallel
+  - nhdplusTools
+  - tidyr
+  - assertthat
+  - ggmap
+  - ggsn
+  
+sources:
+  - R/get_network.R
+  - R/process_network.R
+  - R/match_sites_reaches.R
+  - R/sites.R
+
+targets:
+
+  # in/NHDPlusV21_National_Seamless_Flattened_Lower48.gdb.ind:
+  #   command: download_nhd(out_ind = target_name)
+    
+  #17 minutes on Yeti, output is ~900 MB  
+  out/NHDPlus_flow.rds.ind:
+    command: get_nhdplus_flowpaths(out_ind = target_name,
+      in_ind = 'in/NHDPlusV21_National_Seamless_Flattened_Lower48.gdb.ind')
+  
+  #6 minutes ~860 MB  
+  out/NHDPlus_filtered_renamed.rds.ind:
+    command: filter_rename_nhdplus(out_ind = target_name,
+        in_ind = 'out/NHDPlus_flow.rds.ind',
+        feature_types = I(c('StreamRiver', 'ArtificialPath'))) #currently unused
+        
+  #now existing steps
+  #pull out endpoints of each reach
+  out/reach_endpoints.rds.ind:
+    command: find_endpoints(
+      out_ind = target_name,
+      in_ind = 'out/NHDPlus_filtered_renamed.rds.ind',
+      separate = I(TRUE))
+      
+  #determine up/downstream endpoints
+  out/reach_direction.rds.ind:
+    command: compute_up_down_stream_endpoints(
+      out_ind = target_name,
+      reaches_bounded_ind = 'out/reach_endpoints.rds.ind',
+      assume_upstream_first = I(TRUE))
+      
+  in/flow_sites.rds:
+    command: flow_observations_to_sites(
+      outfile = target_name,
+      inind = 'in/daily_flow.rds.ind')
+  
+  in/unique_sites.rds:
+    command: get_unique_sites(
+      outfile = target_name,
+      temp_sites_file = 'in/stream_sites_us.rds', 
+      flow_sites_file = 'in/flow_sites.rds')
+  
+  out/site_flowlines.rds.ind:
+    command: get_site_flowlines(
+      outind = target_name,
+      reaches_direction_ind = 'out/reach_direction.rds.ind',
+      sites_file = 'in/stream_sites_us.rds',
+      search_radius = 500)
