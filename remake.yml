@@ -19,6 +19,12 @@ targets:
 
   # in/NHDPlusV21_National_Seamless_Flattened_Lower48.gdb.ind:
   #   command: download_nhd(out_ind = target_name)
+   
+  huc4_filter_ids:
+    command: c(I('1401'), I('1402'))
+    
+  basin_footprint:
+    command: st_read('in/ucrb_footprint/upper_colorado_unioned.shp')
     
   #17 minutes on Yeti, output is ~900 MB  
   out/NHDPlus_flow.rds.ind:
@@ -29,7 +35,8 @@ targets:
   out/NHDPlus_filtered_renamed.rds.ind:
     command: filter_rename_nhdplus(out_ind = target_name,
         in_ind = 'out/NHDPlus_flow.rds.ind',
-        feature_types = I(c('StreamRiver', 'ArtificialPath'))) #currently unused
+        feature_types = I(c('StreamRiver', 'ArtificialPath')),
+        huc_4_filter = huc4_filter_ids) #currently unused
         
   #now existing steps
   #pull out endpoints of each reach
@@ -56,6 +63,10 @@ targets:
       outfile = target_name,
       temp_sites_file = 'in/stream_sites_us.rds', 
       flow_sites_file = 'in/flow_sites.rds')
+      
+  basin_sites:
+    command: filter_sites_to_basin(infile = 'in/unique_sites.rds',
+                                   basin_footprint = basin_footprint)
   
   out/site_flowlines.rds.ind:
     command: get_site_flowlines(

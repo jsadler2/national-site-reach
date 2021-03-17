@@ -32,7 +32,7 @@ get_site_flowlines <- function(outind, reaches_direction_ind, sites_file, search
   message("rejoining with other geometries, adjusting matches for upstream proximity...")
   #rejoin to original reaches df, get up/downstream distance
   flowline_indices_joined <- flowline_indices %>%
-    #select(seg_id = COMID, -REACHCODE, -REACH_meas, everything()) %>%
+    rename(seg_id = COMID) %>%
     left_join(reaches_direction, by = c("seg_id")) %>%
     left_join(sites_sf_index, by = c(id = "index")) %>%
     mutate(site_upstream_distance = st_distance(x = Shape_site, y = up_point,
@@ -51,8 +51,10 @@ get_site_flowlines <- function(outind, reaches_direction_ind, sites_file, search
                                      missing = list(seg_id))) %>%
     rename(seg_id_orig_match = seg_id) %>%
     unnest_longer(seg_id_reassign) %>% #handle when site matched to two reaches at intersection
-    select(-to_seg, -seg_id_nhm, -Version, -shape_length, -Shape, -end_points,
-           -which_end_up, -up_point, -down_point) %>%
+    #contains clause for fields in geofabric, but not in NHDPlus
+    #end_points
+    select(-to_seg, -matches('seg_id_nhm|Version|shape_length|end_points|which_end_up'), 
+           -Shape, -up_point, -down_point) %>%
     #drop columns and rejoin to get correct geometries for sites that were
     #moved upstream
     left_join(reaches_direction, by = c(seg_id_reassign = 'seg_id'))
@@ -64,7 +66,6 @@ get_site_flowlines <- function(outind, reaches_direction_ind, sites_file, search
   assert_that(sum(is.na(sites_move_upstream$seg_id_reassign)) == 0,
               msg = 'There are NAs in the matched reach column')
   saveRDS(sites_move_upstream, file = as_data_file(outind))
-  message("uploading...")
   sc_indicate(outind)
 }
 

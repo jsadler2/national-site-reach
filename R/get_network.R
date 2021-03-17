@@ -62,10 +62,15 @@ get_nhdplus_flowpaths <- function(out_ind, in_ind) {
 
 #' Filter NHDPlus to specified feature types, rename columns
 #' to match what is used in processing steps (currently using geofabric names)
-filter_rename_nhdplus <- function(in_ind, out_ind, feature_types) {
+filter_rename_nhdplus <- function(in_ind, out_ind, feature_types, huc_4_filter = NULL) {
   out_network <- readRDS(as_data_file(in_ind)) %>% 
     #filter(FTYPE %in% feature_types) %>% 
     rename(seg_id = COMID, to_seg = TOCOMID)
+  if(!is.null(huc_4_filter)) {
+    out_network <- out_network %>% 
+      mutate(huc4 = stringr::str_sub(REACHCODE, 1, 4)) %>% 
+      filter(huc4 %in% huc_4_filter)
+  }
   saveRDS(out_network, as_data_file(out_ind))
   sc_indicate(out_ind)
 }
