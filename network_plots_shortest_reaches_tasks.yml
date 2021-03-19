@@ -1,0 +1,163 @@
+# Do not edit - automatically generated
+# from the task_makefile.mustache template
+# by create_task_makefile() via make_site_reach_plots()
+
+target_default: network_plots_shortest_reaches_tasks
+
+include:
+  - remake.yml
+
+packages:
+  - sf
+  - tidyverse
+  - ggmap
+  - assertthat
+  - ggsn
+
+sources:
+  - R/plot_tasks.R
+  - R/match_sites_reaches.R
+
+file_extensions:
+  - "ind"
+
+targets:
+  network_plots_shortest_reaches_tasks:
+    depends:
+      - shortest_reaches_plots.zip.ind_promise
+
+  # --- 3254269 --- #
+  
+  out/plots/shortest_reaches_3254269_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3254269'),
+      category = I('shortest_reaches'))
+
+  # --- 1236053 --- #
+  
+  out/plots/shortest_reaches_1236053_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1236053'),
+      category = I('shortest_reaches'))
+
+  # --- 3175240 --- #
+  
+  out/plots/shortest_reaches_3175240_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175240'),
+      category = I('shortest_reaches'))
+
+  # --- 3232861 --- #
+  
+  out/plots/shortest_reaches_3232861_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3232861'),
+      category = I('shortest_reaches'))
+
+  # --- 1336650 --- #
+  
+  out/plots/shortest_reaches_1336650_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1336650'),
+      category = I('shortest_reaches'))
+
+  # --- 3232877 --- #
+  
+  out/plots/shortest_reaches_3232877_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3232877'),
+      category = I('shortest_reaches'))
+
+  # --- 1314783 --- #
+  
+  out/plots/shortest_reaches_1314783_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1314783'),
+      category = I('shortest_reaches'))
+
+  # --- 3232913 --- #
+  
+  out/plots/shortest_reaches_3232913_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3232913'),
+      category = I('shortest_reaches'))
+
+  # --- 3231093 --- #
+  
+  out/plots/shortest_reaches_3231093_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3231093'),
+      category = I('shortest_reaches'))
+
+  # --- 3254081 --- #
+  
+  out/plots/shortest_reaches_3254081_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3254081'),
+      category = I('shortest_reaches'))
+
+  # --- 3178378 --- #
+  
+  out/plots/shortest_reaches_3178378_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3178378'),
+      category = I('shortest_reaches'))
+
+  # --- 3233483 --- #
+  
+  out/plots/shortest_reaches_3233483_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3233483'),
+      category = I('shortest_reaches'))
+
+  # --- 1234037 --- #
+  
+  out/plots/shortest_reaches_1234037_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1234037'),
+      category = I('shortest_reaches'))
+
+  # --- Overall job --- #
+
+  shortest_reaches_plots.zip.ind_promise:
+    command: zip_up_plots(I('out/plots/shortest_reaches_plots.zip.ind'),
+      'out/plots/shortest_reaches_3254269_plot.png',
+      'out/plots/shortest_reaches_1236053_plot.png',
+      'out/plots/shortest_reaches_3175240_plot.png',
+      'out/plots/shortest_reaches_3232861_plot.png',
+      'out/plots/shortest_reaches_1336650_plot.png',
+      'out/plots/shortest_reaches_3232877_plot.png',
+      'out/plots/shortest_reaches_1314783_plot.png',
+      'out/plots/shortest_reaches_3232913_plot.png',
+      'out/plots/shortest_reaches_3231093_plot.png',
+      'out/plots/shortest_reaches_3254081_plot.png',
+      'out/plots/shortest_reaches_3178378_plot.png',
+      'out/plots/shortest_reaches_3233483_plot.png',
+      'out/plots/shortest_reaches_1234037_plot.png')
+    

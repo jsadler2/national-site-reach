@@ -1,0 +1,73 @@
+# Do not edit - automatically generated
+# from the task_makefile.mustache template
+# by create_task_makefile() via make_site_reach_plots()
+
+target_default: network_plots_longest_reaches_tasks
+
+include:
+  - remake.yml
+
+packages:
+  - sf
+  - tidyverse
+  - ggmap
+  - assertthat
+  - ggsn
+
+sources:
+  - R/plot_tasks.R
+  - R/match_sites_reaches.R
+
+file_extensions:
+  - "ind"
+
+targets:
+  network_plots_longest_reaches_tasks:
+    depends:
+      - longest_reaches_plots.zip.ind_promise
+
+  # --- 3252169 --- #
+  
+  out/plots/longest_reaches_3252169_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3252169'),
+      category = I('longest_reaches'))
+
+  # --- 3251893 --- #
+  
+  out/plots/longest_reaches_3251893_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3251893'),
+      category = I('longest_reaches'))
+
+  # --- 3253995 --- #
+  
+  out/plots/longest_reaches_3253995_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3253995'),
+      category = I('longest_reaches'))
+
+  # --- 1327433 --- #
+  
+  out/plots/longest_reaches_1327433_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1327433'),
+      category = I('longest_reaches'))
+
+  # --- Overall job --- #
+
+  longest_reaches_plots.zip.ind_promise:
+    command: zip_up_plots(I('out/plots/longest_reaches_plots.zip.ind'),
+      'out/plots/longest_reaches_3252169_plot.png',
+      'out/plots/longest_reaches_3251893_plot.png',
+      'out/plots/longest_reaches_3253995_plot.png',
+      'out/plots/longest_reaches_1327433_plot.png')
+    

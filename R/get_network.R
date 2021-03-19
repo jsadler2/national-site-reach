@@ -62,10 +62,18 @@ get_nhdplus_flowpaths <- function(out_ind, in_ind) {
 
 #' Filter NHDPlus to specified feature types, rename columns
 #' to match what is used in processing steps (currently using geofabric names)
-filter_rename_nhdplus <- function(in_ind, out_ind, feature_types) {
+#' @param huc_stem_patterns char Character vector of patterns to be passed into 
+#' stringr::str_starts, which is then run on the NHDPlus REACHCODE field.
+#' Use to filter the network to specific hucs
+filter_rename_nhdplus <- function(in_ind, out_ind, huc_stem_patterns = NULL) {
   out_network <- readRDS(as_data_file(in_ind)) %>% 
-    #filter(FTYPE %in% feature_types) %>% 
-    rename(seg_id = COMID, to_seg = TOCOMID)
+    rename(seg_id = COMID, to_seg = TOCOMID) %>% 
+    mutate(shape_length = LENGTHKM * 1000) %>% 
+    st_transform(crs = 'ESRI:102039') #Reproject to USGS proj, same as geofabric
+  if(!is.null(huc_stem_patterns)) {
+    out_network <- out_network %>% 
+      filter(stringr::str_starts(string = REACHCODE, pattern = huc_stem_patterns))
+  }
   saveRDS(out_network, as_data_file(out_ind))
   sc_indicate(out_ind)
 }

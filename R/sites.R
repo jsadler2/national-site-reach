@@ -25,3 +25,8 @@ get_unique_sites <- function(outfile, temp_sites_file, flow_sites_file) {
     distinct(site_id, .keep_all = TRUE)
   saveRDS(distinct_sites, file = outfile)
 }
+
+#intersect sites with basin polygon
+filter_sites_to_basin <- function(infile, basin_footprint) {
+  st_intersection(readRDS(infile), basin_footprint)
+}

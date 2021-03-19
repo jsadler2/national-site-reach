@@ -1,0 +1,1033 @@
+# Do not edit - automatically generated
+# from the task_makefile.mustache template
+# by create_task_makefile() via make_site_reach_plots()
+
+target_default: network_plots_random_site_reaches_tasks
+
+include:
+  - remake.yml
+
+packages:
+  - sf
+  - tidyverse
+  - ggmap
+  - assertthat
+  - ggsn
+
+sources:
+  - R/plot_tasks.R
+  - R/match_sites_reaches.R
+
+file_extensions:
+  - "ind"
+
+targets:
+  network_plots_random_site_reaches_tasks:
+    depends:
+      - random_site_reaches_plots.zip.ind_promise
+
+  # --- 1236675 --- #
+  
+  out/plots/random_site_reaches_1236675_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1236675'),
+      category = I('random_site_reaches'))
+
+  # --- 1232041 --- #
+  
+  out/plots/random_site_reaches_1232041_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1232041'),
+      category = I('random_site_reaches'))
+
+  # --- 1311733 --- #
+  
+  out/plots/random_site_reaches_1311733_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1311733'),
+      category = I('random_site_reaches'))
+
+  # --- 1232791 --- #
+  
+  out/plots/random_site_reaches_1232791_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1232791'),
+      category = I('random_site_reaches'))
+
+  # --- 1320280 --- #
+  
+  out/plots/random_site_reaches_1320280_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1320280'),
+      category = I('random_site_reaches'))
+
+  # --- 1235615 --- #
+  
+  out/plots/random_site_reaches_1235615_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1235615'),
+      category = I('random_site_reaches'))
+
+  # --- 1327137 --- #
+  
+  out/plots/random_site_reaches_1327137_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1327137'),
+      category = I('random_site_reaches'))
+
+  # --- 3175362 --- #
+  
+  out/plots/random_site_reaches_3175362_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175362'),
+      category = I('random_site_reaches'))
+
+  # --- 3175356 --- #
+  
+  out/plots/random_site_reaches_3175356_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175356'),
+      category = I('random_site_reaches'))
+
+  # --- 3181172 --- #
+  
+  out/plots/random_site_reaches_3181172_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3181172'),
+      category = I('random_site_reaches'))
+
+  # --- 3181160 --- #
+  
+  out/plots/random_site_reaches_3181160_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3181160'),
+      category = I('random_site_reaches'))
+
+  # --- 3180768 --- #
+  
+  out/plots/random_site_reaches_3180768_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3180768'),
+      category = I('random_site_reaches'))
+
+  # --- 1332234 --- #
+  
+  out/plots/random_site_reaches_1332234_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1332234'),
+      category = I('random_site_reaches'))
+
+  # --- 1332946 --- #
+  
+  out/plots/random_site_reaches_1332946_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1332946'),
+      category = I('random_site_reaches'))
+
+  # --- 3252637 --- #
+  
+  out/plots/random_site_reaches_3252637_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3252637'),
+      category = I('random_site_reaches'))
+
+  # --- 1336770 --- #
+  
+  out/plots/random_site_reaches_1336770_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1336770'),
+      category = I('random_site_reaches'))
+
+  # --- 9769294 --- #
+  
+  out/plots/random_site_reaches_9769294_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9769294'),
+      category = I('random_site_reaches'))
+
+  # --- 9769820 --- #
+  
+  out/plots/random_site_reaches_9769820_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9769820'),
+      category = I('random_site_reaches'))
+
+  # --- 3254425 --- #
+  
+  out/plots/random_site_reaches_3254425_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3254425'),
+      category = I('random_site_reaches'))
+
+  # --- 9769082 --- #
+  
+  out/plots/random_site_reaches_9769082_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9769082'),
+      category = I('random_site_reaches'))
+
+  # --- 9769048 --- #
+  
+  out/plots/random_site_reaches_9769048_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9769048'),
+      category = I('random_site_reaches'))
+
+  # --- 9768092 --- #
+  
+  out/plots/random_site_reaches_9768092_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9768092'),
+      category = I('random_site_reaches'))
+
+  # --- 9768070 --- #
+  
+  out/plots/random_site_reaches_9768070_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9768070'),
+      category = I('random_site_reaches'))
+
+  # --- 9768072 --- #
+  
+  out/plots/random_site_reaches_9768072_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9768072'),
+      category = I('random_site_reaches'))
+
+  # --- 3232521 --- #
+  
+  out/plots/random_site_reaches_3232521_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3232521'),
+      category = I('random_site_reaches'))
+
+  # --- 3232003 --- #
+  
+  out/plots/random_site_reaches_3232003_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3232003'),
+      category = I('random_site_reaches'))
+
+  # --- 3233523 --- #
+  
+  out/plots/random_site_reaches_3233523_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3233523'),
+      category = I('random_site_reaches'))
+
+  # --- 3233265 --- #
+  
+  out/plots/random_site_reaches_3233265_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3233265'),
+      category = I('random_site_reaches'))
+
+  # --- 1337662 --- #
+  
+  out/plots/random_site_reaches_1337662_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1337662'),
+      category = I('random_site_reaches'))
+
+  # --- 1333060 --- #
+  
+  out/plots/random_site_reaches_1333060_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1333060'),
+      category = I('random_site_reaches'))
+
+  # --- 3232673 --- #
+  
+  out/plots/random_site_reaches_3232673_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3232673'),
+      category = I('random_site_reaches'))
+
+  # --- 1337538 --- #
+  
+  out/plots/random_site_reaches_1337538_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1337538'),
+      category = I('random_site_reaches'))
+
+  # --- 1332944 --- #
+  
+  out/plots/random_site_reaches_1332944_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1332944'),
+      category = I('random_site_reaches'))
+
+  # --- 1337434 --- #
+  
+  out/plots/random_site_reaches_1337434_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1337434'),
+      category = I('random_site_reaches'))
+
+  # --- 3231213 --- #
+  
+  out/plots/random_site_reaches_3231213_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3231213'),
+      category = I('random_site_reaches'))
+
+  # --- 3232601 --- #
+  
+  out/plots/random_site_reaches_3232601_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3232601'),
+      category = I('random_site_reaches'))
+
+  # --- 1337198 --- #
+  
+  out/plots/random_site_reaches_1337198_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1337198'),
+      category = I('random_site_reaches'))
+
+  # --- 1332718 --- #
+  
+  out/plots/random_site_reaches_1332718_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1332718'),
+      category = I('random_site_reaches'))
+
+  # --- 3230449 --- #
+  
+  out/plots/random_site_reaches_3230449_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3230449'),
+      category = I('random_site_reaches'))
+
+  # --- 3179720 --- #
+  
+  out/plots/random_site_reaches_3179720_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3179720'),
+      category = I('random_site_reaches'))
+
+  # --- 3178958 --- #
+  
+  out/plots/random_site_reaches_3178958_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3178958'),
+      category = I('random_site_reaches'))
+
+  # --- 3178266 --- #
+  
+  out/plots/random_site_reaches_3178266_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3178266'),
+      category = I('random_site_reaches'))
+
+  # --- 3178040 --- #
+  
+  out/plots/random_site_reaches_3178040_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3178040'),
+      category = I('random_site_reaches'))
+
+  # --- 3177976 --- #
+  
+  out/plots/random_site_reaches_3177976_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3177976'),
+      category = I('random_site_reaches'))
+
+  # --- 3177760 --- #
+  
+  out/plots/random_site_reaches_3177760_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3177760'),
+      category = I('random_site_reaches'))
+
+  # --- 3180764 --- #
+  
+  out/plots/random_site_reaches_3180764_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3180764'),
+      category = I('random_site_reaches'))
+
+  # --- 1255402 --- #
+  
+  out/plots/random_site_reaches_1255402_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1255402'),
+      category = I('random_site_reaches'))
+
+  # --- 1325921 --- #
+  
+  out/plots/random_site_reaches_1325921_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1325921'),
+      category = I('random_site_reaches'))
+
+  # --- 1325877 --- #
+  
+  out/plots/random_site_reaches_1325877_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1325877'),
+      category = I('random_site_reaches'))
+
+  # --- 3176018 --- #
+  
+  out/plots/random_site_reaches_3176018_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3176018'),
+      category = I('random_site_reaches'))
+
+  # --- 1253852 --- #
+  
+  out/plots/random_site_reaches_1253852_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1253852'),
+      category = I('random_site_reaches'))
+
+  # --- 1312955 --- #
+  
+  out/plots/random_site_reaches_1312955_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1312955'),
+      category = I('random_site_reaches'))
+
+  # --- 1253792 --- #
+  
+  out/plots/random_site_reaches_1253792_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1253792'),
+      category = I('random_site_reaches'))
+
+  # --- 1253714 --- #
+  
+  out/plots/random_site_reaches_1253714_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1253714'),
+      category = I('random_site_reaches'))
+
+  # --- 3175398 --- #
+  
+  out/plots/random_site_reaches_3175398_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175398'),
+      category = I('random_site_reaches'))
+
+  # --- 1253800 --- #
+  
+  out/plots/random_site_reaches_1253800_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1253800'),
+      category = I('random_site_reaches'))
+
+  # --- 1312881 --- #
+  
+  out/plots/random_site_reaches_1312881_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1312881'),
+      category = I('random_site_reaches'))
+
+  # --- 1253340 --- #
+  
+  out/plots/random_site_reaches_1253340_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1253340'),
+      category = I('random_site_reaches'))
+
+  # --- 3175044 --- #
+  
+  out/plots/random_site_reaches_3175044_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175044'),
+      category = I('random_site_reaches'))
+
+  # --- 1318928 --- #
+  
+  out/plots/random_site_reaches_1318928_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1318928'),
+      category = I('random_site_reaches'))
+
+  # --- 3175876 --- #
+  
+  out/plots/random_site_reaches_3175876_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175876'),
+      category = I('random_site_reaches'))
+
+  # --- 3174876 --- #
+  
+  out/plots/random_site_reaches_3174876_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3174876'),
+      category = I('random_site_reaches'))
+
+  # --- 1235377 --- #
+  
+  out/plots/random_site_reaches_1235377_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1235377'),
+      category = I('random_site_reaches'))
+
+  # --- 1312343 --- #
+  
+  out/plots/random_site_reaches_1312343_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1312343'),
+      category = I('random_site_reaches'))
+
+  # --- 1239261 --- #
+  
+  out/plots/random_site_reaches_1239261_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1239261'),
+      category = I('random_site_reaches'))
+
+  # --- 1232197 --- #
+  
+  out/plots/random_site_reaches_1232197_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1232197'),
+      category = I('random_site_reaches'))
+
+  # --- 1231451 --- #
+  
+  out/plots/random_site_reaches_1231451_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1231451'),
+      category = I('random_site_reaches'))
+
+  # --- 3251515 --- #
+  
+  out/plots/random_site_reaches_3251515_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3251515'),
+      category = I('random_site_reaches'))
+
+  # --- 3252253 --- #
+  
+  out/plots/random_site_reaches_3252253_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3252253'),
+      category = I('random_site_reaches'))
+
+  # --- 3253265 --- #
+  
+  out/plots/random_site_reaches_3253265_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3253265'),
+      category = I('random_site_reaches'))
+
+  # --- 3253235 --- #
+  
+  out/plots/random_site_reaches_3253235_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3253235'),
+      category = I('random_site_reaches'))
+
+  # --- 3253981 --- #
+  
+  out/plots/random_site_reaches_3253981_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3253981'),
+      category = I('random_site_reaches'))
+
+  # --- 3251699 --- #
+  
+  out/plots/random_site_reaches_3251699_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3251699'),
+      category = I('random_site_reaches'))
+
+  # --- 3251865 --- #
+  
+  out/plots/random_site_reaches_3251865_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3251865'),
+      category = I('random_site_reaches'))
+
+  # --- 1233891 --- #
+  
+  out/plots/random_site_reaches_1233891_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1233891'),
+      category = I('random_site_reaches'))
+
+  # --- 1234631 --- #
+  
+  out/plots/random_site_reaches_1234631_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1234631'),
+      category = I('random_site_reaches'))
+
+  # --- 1234117 --- #
+  
+  out/plots/random_site_reaches_1234117_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1234117'),
+      category = I('random_site_reaches'))
+
+  # --- 9773363 --- #
+  
+  out/plots/random_site_reaches_9773363_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9773363'),
+      category = I('random_site_reaches'))
+
+  # --- 1239315 --- #
+  
+  out/plots/random_site_reaches_1239315_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1239315'),
+      category = I('random_site_reaches'))
+
+  # --- 3253497 --- #
+  
+  out/plots/random_site_reaches_3253497_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3253497'),
+      category = I('random_site_reaches'))
+
+  # --- 1239661 --- #
+  
+  out/plots/random_site_reaches_1239661_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1239661'),
+      category = I('random_site_reaches'))
+
+  # --- 1332846 --- #
+  
+  out/plots/random_site_reaches_1332846_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1332846'),
+      category = I('random_site_reaches'))
+
+  # --- 9773581 --- #
+  
+  out/plots/random_site_reaches_9773581_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9773581'),
+      category = I('random_site_reaches'))
+
+  # --- 9774041 --- #
+  
+  out/plots/random_site_reaches_9774041_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9774041'),
+      category = I('random_site_reaches'))
+
+  # --- 1337740 --- #
+  
+  out/plots/random_site_reaches_1337740_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1337740'),
+      category = I('random_site_reaches'))
+
+  # --- 3233535 --- #
+  
+  out/plots/random_site_reaches_3233535_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3233535'),
+      category = I('random_site_reaches'))
+
+  # --- 3233255 --- #
+  
+  out/plots/random_site_reaches_3233255_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3233255'),
+      category = I('random_site_reaches'))
+
+  # --- 3178718 --- #
+  
+  out/plots/random_site_reaches_3178718_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3178718'),
+      category = I('random_site_reaches'))
+
+  # --- 3178552 --- #
+  
+  out/plots/random_site_reaches_3178552_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3178552'),
+      category = I('random_site_reaches'))
+
+  # --- 3251389 --- #
+  
+  out/plots/random_site_reaches_3251389_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3251389'),
+      category = I('random_site_reaches'))
+
+  # --- 1254604 --- #
+  
+  out/plots/random_site_reaches_1254604_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1254604'),
+      category = I('random_site_reaches'))
+
+  # --- 1253708 --- #
+  
+  out/plots/random_site_reaches_1253708_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1253708'),
+      category = I('random_site_reaches'))
+
+  # --- 3180440 --- #
+  
+  out/plots/random_site_reaches_3180440_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3180440'),
+      category = I('random_site_reaches'))
+
+  # --- 3178484 --- #
+  
+  out/plots/random_site_reaches_3178484_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3178484'),
+      category = I('random_site_reaches'))
+
+  # --- 3175884 --- #
+  
+  out/plots/random_site_reaches_3175884_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175884'),
+      category = I('random_site_reaches'))
+
+  # --- 3175404 --- #
+  
+  out/plots/random_site_reaches_3175404_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175404'),
+      category = I('random_site_reaches'))
+
+  # --- 1238553 --- #
+  
+  out/plots/random_site_reaches_1238553_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1238553'),
+      category = I('random_site_reaches'))
+
+  # --- 1231757 --- #
+  
+  out/plots/random_site_reaches_1231757_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1231757'),
+      category = I('random_site_reaches'))
+
+  # --- 3180520 --- #
+  
+  out/plots/random_site_reaches_3180520_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3180520'),
+      category = I('random_site_reaches'))
+
+  # --- 3231873 --- #
+  
+  out/plots/random_site_reaches_3231873_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3231873'),
+      category = I('random_site_reaches'))
+
+  # --- Overall job --- #
+
+  random_site_reaches_plots.zip.ind_promise:
+    command: zip_up_plots(I('out/plots/random_site_reaches_plots.zip.ind'),
+      'out/plots/random_site_reaches_1236675_plot.png',
+      'out/plots/random_site_reaches_1232041_plot.png',
+      'out/plots/random_site_reaches_1311733_plot.png',
+      'out/plots/random_site_reaches_1232791_plot.png',
+      'out/plots/random_site_reaches_1320280_plot.png',
+      'out/plots/random_site_reaches_1235615_plot.png',
+      'out/plots/random_site_reaches_1327137_plot.png',
+      'out/plots/random_site_reaches_3175362_plot.png',
+      'out/plots/random_site_reaches_3175356_plot.png',
+      'out/plots/random_site_reaches_3181172_plot.png',
+      'out/plots/random_site_reaches_3181160_plot.png',
+      'out/plots/random_site_reaches_3180768_plot.png',
+      'out/plots/random_site_reaches_1332234_plot.png',
+      'out/plots/random_site_reaches_1332946_plot.png',
+      'out/plots/random_site_reaches_3252637_plot.png',
+      'out/plots/random_site_reaches_1336770_plot.png',
+      'out/plots/random_site_reaches_9769294_plot.png',
+      'out/plots/random_site_reaches_9769820_plot.png',
+      'out/plots/random_site_reaches_3254425_plot.png',
+      'out/plots/random_site_reaches_9769082_plot.png',
+      'out/plots/random_site_reaches_9769048_plot.png',
+      'out/plots/random_site_reaches_9768092_plot.png',
+      'out/plots/random_site_reaches_9768070_plot.png',
+      'out/plots/random_site_reaches_9768072_plot.png',
+      'out/plots/random_site_reaches_3232521_plot.png',
+      'out/plots/random_site_reaches_3232003_plot.png',
+      'out/plots/random_site_reaches_3233523_plot.png',
+      'out/plots/random_site_reaches_3233265_plot.png',
+      'out/plots/random_site_reaches_1337662_plot.png',
+      'out/plots/random_site_reaches_1333060_plot.png',
+      'out/plots/random_site_reaches_3232673_plot.png',
+      'out/plots/random_site_reaches_1337538_plot.png',
+      'out/plots/random_site_reaches_1332944_plot.png',
+      'out/plots/random_site_reaches_1337434_plot.png',
+      'out/plots/random_site_reaches_3231213_plot.png',
+      'out/plots/random_site_reaches_3232601_plot.png',
+      'out/plots/random_site_reaches_1337198_plot.png',
+      'out/plots/random_site_reaches_1332718_plot.png',
+      'out/plots/random_site_reaches_3230449_plot.png',
+      'out/plots/random_site_reaches_3179720_plot.png',
+      'out/plots/random_site_reaches_3178958_plot.png',
+      'out/plots/random_site_reaches_3178266_plot.png',
+      'out/plots/random_site_reaches_3178040_plot.png',
+      'out/plots/random_site_reaches_3177976_plot.png',
+      'out/plots/random_site_reaches_3177760_plot.png',
+      'out/plots/random_site_reaches_3180764_plot.png',
+      'out/plots/random_site_reaches_1255402_plot.png',
+      'out/plots/random_site_reaches_1325921_plot.png',
+      'out/plots/random_site_reaches_1325877_plot.png',
+      'out/plots/random_site_reaches_3176018_plot.png',
+      'out/plots/random_site_reaches_1253852_plot.png',
+      'out/plots/random_site_reaches_1312955_plot.png',
+      'out/plots/random_site_reaches_1253792_plot.png',
+      'out/plots/random_site_reaches_1253714_plot.png',
+      'out/plots/random_site_reaches_3175398_plot.png',
+      'out/plots/random_site_reaches_1253800_plot.png',
+      'out/plots/random_site_reaches_1312881_plot.png',
+      'out/plots/random_site_reaches_1253340_plot.png',
+      'out/plots/random_site_reaches_3175044_plot.png',
+      'out/plots/random_site_reaches_1318928_plot.png',
+      'out/plots/random_site_reaches_3175876_plot.png',
+      'out/plots/random_site_reaches_3174876_plot.png',
+      'out/plots/random_site_reaches_1235377_plot.png',
+      'out/plots/random_site_reaches_1312343_plot.png',
+      'out/plots/random_site_reaches_1239261_plot.png',
+      'out/plots/random_site_reaches_1232197_plot.png',
+      'out/plots/random_site_reaches_1231451_plot.png',
+      'out/plots/random_site_reaches_3251515_plot.png',
+      'out/plots/random_site_reaches_3252253_plot.png',
+      'out/plots/random_site_reaches_3253265_plot.png',
+      'out/plots/random_site_reaches_3253235_plot.png',
+      'out/plots/random_site_reaches_3253981_plot.png',
+      'out/plots/random_site_reaches_3251699_plot.png',
+      'out/plots/random_site_reaches_3251865_plot.png',
+      'out/plots/random_site_reaches_1233891_plot.png',
+      'out/plots/random_site_reaches_1234631_plot.png',
+      'out/plots/random_site_reaches_1234117_plot.png',
+      'out/plots/random_site_reaches_9773363_plot.png',
+      'out/plots/random_site_reaches_1239315_plot.png',
+      'out/plots/random_site_reaches_3253497_plot.png',
+      'out/plots/random_site_reaches_1239661_plot.png',
+      'out/plots/random_site_reaches_1332846_plot.png',
+      'out/plots/random_site_reaches_9773581_plot.png',
+      'out/plots/random_site_reaches_9774041_plot.png',
+      'out/plots/random_site_reaches_1337740_plot.png',
+      'out/plots/random_site_reaches_3233535_plot.png',
+      'out/plots/random_site_reaches_3233255_plot.png',
+      'out/plots/random_site_reaches_3178718_plot.png',
+      'out/plots/random_site_reaches_3178552_plot.png',
+      'out/plots/random_site_reaches_3251389_plot.png',
+      'out/plots/random_site_reaches_1254604_plot.png',
+      'out/plots/random_site_reaches_1253708_plot.png',
+      'out/plots/random_site_reaches_3180440_plot.png',
+      'out/plots/random_site_reaches_3178484_plot.png',
+      'out/plots/random_site_reaches_3175884_plot.png',
+      'out/plots/random_site_reaches_3175404_plot.png',
+      'out/plots/random_site_reaches_1238553_plot.png',
+      'out/plots/random_site_reaches_1231757_plot.png',
+      'out/plots/random_site_reaches_3180520_plot.png',
+      'out/plots/random_site_reaches_3231873_plot.png')
+    

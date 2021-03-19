@@ -1,19 +1,17 @@
 #' @param separate logical should the endpoints column be broken into separate first/last point columns?  
 #' For NHDPlusV2 these are up/downstream points based on QAQC steps in manual, Page 102 Check 13
 find_endpoints <- function(in_ind, out_ind, separate = FALSE) {
-  
-  network_reaches <- readRDS(as_data_file(in_ind)) #%>% slice_sample(prop=0.5) 
+  n_cores_to_use <- as.numeric(Sys.getenv('SLURM_CPUS_ON_NODE')) - 1
+  network_reaches <- readRDS(as_data_file(in_ind))  
   print(pryr::object_size(network_reaches))
   message('read done')
   #should take about 9 minutes for national, single-threaded with geofabric
-  #cores_to_use <- detectCores() - 1
   #TODO: dynamically set number of cores based on RAM per cpu
   #Seems to need at least 8-10 GB/core; 6 doesn't work, 12 does
-  cores_to_use <- 10
   file.remove('cluster_out.txt')
-  cl <- makeCluster(cores_to_use, setup_strategy = "sequential",
+  cl <- makeCluster(n_cores_to_use, setup_strategy = "sequential",
                     outfile = 'cluster_out.txt')
-  message('cluster set up on ', cores_to_use, ' cores')
+  message('cluster set up on ', n_cores_to_use, ' cores')
   network_reaches_indices <- clusterSplit(cl, 1:nrow(network_reaches))
   network_reaches_split <- lapply(X = network_reaches_indices, FUN = function(x) {network_reaches[x,]})
   #TODO: could drop network_reaches object here, check size of list, garbage collect in add_endpoints?
@@ -70,34 +68,6 @@ get_reach_direction <- function(seg_ids, reaches_bounded) {
   return(reaches_bounded_direction_subset)
 }
 
-#' Add missing reaches to a chunk of the network so that up/down reaches are included
-#' Enables parallelization beyond chunking by HUC.
-#' @param seg_df_chunk chunk of network, with only seg_id and to/from
-#' @param full_reach_df data frame of entire network with geoms
-add_missing_reference_reaches <- function(seg_df_chunk, full_reach_df) {
-  missing_to_segs <- seg_df_chunk %>% 
-    filter(!to_seg %in% seg_df_chunk$seg_id,
-           to_seg > 0, !is.na(to_seg)) %>% #to_seg = 0 is NHD; geofabric might use NA?
-          pull(to_seg)
-  missing_from_segs <- seg_df_chunk %>% 
-    filter(!from_seg %in% seg_df_chunk$seg_id,
-           !is.na(from_seg)) %>% 
-    pull(from_seg)
-  reference_segs_to_add <- full_reach_df %>% 
-    select(seg_id, Shape, end_points) %>% 
-    filter((seg_id %in% missing_to_segs) | (seg_id %in% missing_from_segs)) %>% 
-    mutate(check_reach = FALSE)
-  full_df_chunk <- full_reach_df %>% 
-    filter(seg_id %in% seg_df_chunk$seg_id) %>% 
-    mutate(check_reach = TRUE) %>% 
-    bind_rows(reference_segs_to_add)
-  browser()
-  assert_that(all(na.omit(full_df_chunk$to_seg) %in% full_df_chunk$seg_id))
-  assert_that(all(na.omit(full_df_chunk$from_set) %in% full_df_chunk$seg_id))
-  return(full_df_chunk)
-}
-
-
 compute_up_down_stream_endpoints <- function(reaches_bounded_ind, out_ind,
                                              assume_upstream_first = FALSE) {
   
@@ -105,59 +75,21 @@ compute_up_down_stream_endpoints <- function(reaches_bounded_ind, out_ind,
     ungroup() 
   
   if(!assume_upstream_first) {
-  warning("The reach direction code has not been tested with NHDPlus, and may not scale well")
-  #TODO: set up chunks using from_seg
-  just_seg_ids_to <- select(reaches_bounded, seg_id, to_seg, Divergence) #%>% 
-    #filter(Divergence < 2) 
-    
-  #confluences will result in duplicates; reduce from_segs to only one reach
-  #per downstream segment with group by and slice
-  #TODO: do the same to account for divergences; use 
-  #No, just use the first result when getting up/downstream
-  #and there are multiple matches; don't filter by feature type at all
-  just_seg_ids_from <- select(reaches_bounded, seg_id, to_seg) %>% 
-    # filter(!is.na(to_seg)) %>% 
-    # group_by(to_seg) %>% 
-    # slice(1) %>% 
-    rename(from_seg = seg_id, seg_id = to_seg)
-  
-  with_from_seg <- just_seg_ids_to %>% 
-    left_join(just_seg_ids_from, 
-                  by = 'seg_id') 
-  #break into chunks, label as check_reach;
-  n_cluster_nodes <- length(cl)
-  n_reaches <- nrow(reaches_bounded)
-  #seg_ids_chunked <- split(with_from_seg, 1:(n_cluster_nodes))
-  seg_ids_chunked <- clusterSplit(cl, with_from_seg$seg_id)
-  #subset with_from_segs, append reaches, join with geoms
-  t <- with_from_seg %>% filter(seg_id %in% seg_ids_chunked[[1]]) %>% 
-    add_missing_reference_reaches(seg_df_chunk = ., full_reach_df = reaches_bounded)
-  
-  #find what seg_ids are missing from to_seg and from_seg (excluding 0 and NA)
-  #bind these seg_ids onto chunk from main df; check_reach will be false, since 
-  #these reaches are just here to compare to
-  #apply this in serial, or over a small cluster before full parallel section
-  t <- add_missing_reference_reaches(seg_ids_chunked[[1]])
-  
-  # %>% 
-  #   left_join(reaches_bounded, by = c("seg_id", "to_seg"))
-  
-  #use check_reach in parallelized function
-  
-  
-  #geofabric: ~26 minutes for national single-threaded, ~5 minutes on 7 cores
-  n_cores_to_use <- detectCores() - 1
-  cl <- makeCluster(n_cores_to_use - 1)
-  clusterEvalQ(cl, lapply(c('sf', 'dplyr', 'purrr'), library, character.only = TRUE))
-  seg_ids_split <- clusterSplit(cl, reaches_bounded$seg_id)
-  message('cluster setup complete, starting parallel execution on ', n_cores_to_use, ' cores...')
-  cluster_results <- parLapply(cl = cl, X = seg_ids_split,
-                               fun = get_reach_direction, reaches_bounded)
-  stopCluster(cl)
-  message('parallel done')
-  results_bound <- data.table::rbindlist(cluster_results)
-  } else { #don't need to parallelize?
-    #put endpoints separately from the start, then can just rename
+    warning("The reach direction code has not been adapted for the scale of NHDPlus")
+    #~26 minutes for national single-threaded, ~5 minutes on 7 cores
+    n_cores_to_use <- as.numeric(Sys.getenv('SLURM_CPUS_ON_NODE')) - 1
+    cl <- makeCluster(n_cores_to_use)
+    clusterEvalQ(cl, lapply(c('sf', 'dplyr', 'purrr'), library, character.only = TRUE))
+    seg_ids_split <- clusterSplit(cl, reaches_bounded$seg_id)
+    cluster_results <- parLapply(cl = cl, X = seg_ids_split,
+                                 fun = get_reach_direction, reaches_bounded)
+    stopCluster(cl)
+    results_bound <- bind_rows(cluster_results)
+    results_bound <- data.table::rbindlist(cluster_results)
+  } else { 
+    #don't need to parallelize
+    #put endpoints separately from the start (with separate = TRUE in find_endpoints), 
+    #then can just rename
     results_bound <- reaches_bounded %>% rename(up_point = first_point, down_point = last_point)
   }
   
