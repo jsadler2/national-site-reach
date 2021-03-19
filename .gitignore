@@ -8,3 +8,9 @@ slurm_output/*
 .myrun/*
 in/NHDPlusNationalData/*
 in/*.7z
+in/*.rds
+out/*.rds
+.remake/*
+.myvar/*
+*.ind
+cluster_out.txt
