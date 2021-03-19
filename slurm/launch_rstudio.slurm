@@ -5,8 +5,8 @@
 #SBATCH -p normal,UV,short
 #SBATCH -A iidd          # your account code
 #SBATCH -n 1
-#SBATCH -c 20
-#SBATCH --mem=120GB
+#SBATCH -c 2
+#SBATCH --mem 120GB
 #SBATCH --mail-user=wwatkins@usgs.gov
 
 export PASSWORD=$(openssl rand -base64 15)
@@ -38,13 +38,16 @@ END
 #creating these outside the container, will be bound to normal paths
 mkdir -p .mytmp
 mkdir -p .myrun
+mkdir -p .myvar
+
+export SLURM_CPUS_ON_NODE
 
 START_DIR=$(pwd) #start Rstudio in current directory (wherever sbatch run from)
 module load singularity/3.4.1
-
 # This example bind mounts the /cxfs directory on the host into the Singularity container.
 # By default the only host file systems mounted within the container are $HOME, /tmp, /proc, /sys, and /dev.
-srun singularity exec --bind=/cxfs --bind .mytmp:/tmp --bind .myrun:/run national_site_reach_v0.1.sif \
+srun singularity exec --bind=/cxfs --bind .mytmp:/tmp --bind .myrun:/run --bind .myvar:/var \
+    national_site_reach_v0.2.sif \
     rserver --www-port ${PORT} --auth-none=0 --auth-pam-helper-path=pam-helper \
     --server-working-dir=${START_DIR}
 printf 'rserver exited' 1>&2
