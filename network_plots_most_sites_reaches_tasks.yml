@@ -1,0 +1,244 @@
+# Do not edit - automatically generated
+# from the task_makefile.mustache template
+# by create_task_makefile() via make_site_reach_plots()
+
+target_default: network_plots_most_sites_reaches_tasks
+
+include:
+  - remake.yml
+
+packages:
+  - sf
+  - tidyverse
+  - ggmap
+  - assertthat
+  - ggsn
+
+sources:
+  - R/plot_tasks.R
+  - R/visuals.R
+  - R/match_sites_reaches.R
+
+file_extensions:
+  - "ind"
+
+targets:
+  network_plots_most_sites_reaches_tasks:
+    depends:
+      - most_sites_reaches_plots.zip.ind_promise
+
+  # --- 1231205 --- #
+  
+  out/plots/most_sites_reaches_1231205_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1231205'),
+      category = I('most_sites_reaches'))
+
+  # --- 1319426 --- #
+  
+  out/plots/most_sites_reaches_1319426_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1319426'),
+      category = I('most_sites_reaches'))
+
+  # --- 3176490 --- #
+  
+  out/plots/most_sites_reaches_3176490_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3176490'),
+      category = I('most_sites_reaches'))
+
+  # --- 1231609 --- #
+  
+  out/plots/most_sites_reaches_1231609_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1231609'),
+      category = I('most_sites_reaches'))
+
+  # --- 1235807 --- #
+  
+  out/plots/most_sites_reaches_1235807_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1235807'),
+      category = I('most_sites_reaches'))
+
+  # --- 1324997 --- #
+  
+  out/plots/most_sites_reaches_1324997_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1324997'),
+      category = I('most_sites_reaches'))
+
+  # --- 3179476 --- #
+  
+  out/plots/most_sites_reaches_3179476_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3179476'),
+      category = I('most_sites_reaches'))
+
+  # --- 3179298 --- #
+  
+  out/plots/most_sites_reaches_3179298_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3179298'),
+      category = I('most_sites_reaches'))
+
+  # --- 3232569 --- #
+  
+  out/plots/most_sites_reaches_3232569_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3232569'),
+      category = I('most_sites_reaches'))
+
+  # --- 1239657 --- #
+  
+  out/plots/most_sites_reaches_1239657_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1239657'),
+      category = I('most_sites_reaches'))
+
+  # --- 1239287 --- #
+  
+  out/plots/most_sites_reaches_1239287_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1239287'),
+      category = I('most_sites_reaches'))
+
+  # --- 1332234 --- #
+  
+  out/plots/most_sites_reaches_1332234_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1332234'),
+      category = I('most_sites_reaches'))
+
+  # --- 9770400 --- #
+  
+  out/plots/most_sites_reaches_9770400_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9770400'),
+      category = I('most_sites_reaches'))
+
+  # --- 9769076 --- #
+  
+  out/plots/most_sites_reaches_9769076_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9769076'),
+      category = I('most_sites_reaches'))
+
+  # --- 9769770 --- #
+  
+  out/plots/most_sites_reaches_9769770_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9769770'),
+      category = I('most_sites_reaches'))
+
+  # --- 1315011 --- #
+  
+  out/plots/most_sites_reaches_1315011_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1315011'),
+      category = I('most_sites_reaches'))
+
+  # --- 1314063 --- #
+  
+  out/plots/most_sites_reaches_1314063_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1314063'),
+      category = I('most_sites_reaches'))
+
+  # --- 1231919 --- #
+  
+  out/plots/most_sites_reaches_1231919_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1231919'),
+      category = I('most_sites_reaches'))
+
+  # --- 1314075 --- #
+  
+  out/plots/most_sites_reaches_1314075_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1314075'),
+      category = I('most_sites_reaches'))
+
+  # --- 1314649 --- #
+  
+  out/plots/most_sites_reaches_1314649_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1314649'),
+      category = I('most_sites_reaches'))
+
+  # --- 1239389 --- #
+  
+  out/plots/most_sites_reaches_1239389_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1239389'),
+      category = I('most_sites_reaches'))
+
+  # --- Overall job --- #
+
+  most_sites_reaches_plots.zip.ind_promise:
+    command: zip_up_plots(I('out/plots/most_sites_reaches_plots.zip.ind'),
+      'out/plots/most_sites_reaches_1231205_plot.png',
+      'out/plots/most_sites_reaches_1319426_plot.png',
+      'out/plots/most_sites_reaches_3176490_plot.png',
+      'out/plots/most_sites_reaches_1231609_plot.png',
+      'out/plots/most_sites_reaches_1235807_plot.png',
+      'out/plots/most_sites_reaches_1324997_plot.png',
+      'out/plots/most_sites_reaches_3179476_plot.png',
+      'out/plots/most_sites_reaches_3179298_plot.png',
+      'out/plots/most_sites_reaches_3232569_plot.png',
+      'out/plots/most_sites_reaches_1239657_plot.png',
+      'out/plots/most_sites_reaches_1239287_plot.png',
+      'out/plots/most_sites_reaches_1332234_plot.png',
+      'out/plots/most_sites_reaches_9770400_plot.png',
+      'out/plots/most_sites_reaches_9769076_plot.png',
+      'out/plots/most_sites_reaches_9769770_plot.png',
+      'out/plots/most_sites_reaches_1315011_plot.png',
+      'out/plots/most_sites_reaches_1314063_plot.png',
+      'out/plots/most_sites_reaches_1231919_plot.png',
+      'out/plots/most_sites_reaches_1314075_plot.png',
+      'out/plots/most_sites_reaches_1314649_plot.png',
+      'out/plots/most_sites_reaches_1239389_plot.png')
+    

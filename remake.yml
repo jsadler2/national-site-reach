@@ -14,8 +14,21 @@ sources:
   - R/process_network.R
   - R/match_sites_reaches.R
   - R/sites.R
+  - R/plot_tasks.R
+  - R/visuals.R
 
 targets:
+
+  all_plots:
+    depends:
+       - out/plots/most_sites_reaches_plots.zip.ind
+       - out/plots/longest_reaches_plots.zip.ind
+       - out/plots/shortest_reaches_plots.zip.ind
+       - out/plots/random_site_reaches_plots.zip.ind
+       - out/plots/order_one_reaches_plots.zip.ind
+       - out/plots/site_reach_distances.png.ind
+       - out/plots/sites_per_reach.png.ind
+       - out/plots/site_distance_vs_reach_length.png.ind
 
   # in/NHDPlusV21_National_Seamless_Flattened_Lower48.gdb.ind:
   #   command: download_nhd(out_ind = target_name)
@@ -31,12 +44,11 @@ targets:
     command: get_nhdplus_flowpaths(out_ind = target_name,
       in_ind = 'in/NHDPlusV21_National_Seamless_Flattened_Lower48.gdb.ind')
   
-  #6 minutes ~860 MB  
+  #6 minutes ~860 MB for full NHDPlus
   out/NHDPlus_filtered_renamed.rds.ind:
     command: filter_rename_nhdplus(out_ind = target_name,
         in_ind = 'out/NHDPlus_flow.rds.ind',
-        feature_types = I(c('StreamRiver', 'ArtificialPath')),
-        huc_4_filter = huc4_filter_ids) #currently unused
+        huc_stem_patterns = huc4_filter_ids) 
         
   #now existing steps
   #pull out endpoints of each reach
@@ -68,9 +80,74 @@ targets:
     command: filter_sites_to_basin(infile = 'in/unique_sites.rds',
                                    basin_footprint = basin_footprint)
   
+  # Do the actual addressing
   out/site_flowlines.rds.ind:
     command: get_site_flowlines(
       outind = target_name,
       reaches_direction_ind = 'out/reach_direction.rds.ind',
-      sites_file = 'in/stream_sites_us.rds',
+      sites = basin_sites,
       search_radius = 500)
+  
+  #for full network, should this be an indicator file?
+  reaches_direction_latlon:
+    command: transform_network_file('out/reach_direction.rds.ind',
+                                    crs = I(4326))
+
+  #from the set of reaches that were matched with sites, generate graphics
+  #for a random subset, plus focus on edge cases:
+  #longest/shortest reaches, most sites, low stream order, summary metrics
+  reaches_to_check:
+    command: sample_reaches(matched_sites_ind = 'out/site_flowlines.rds.ind',
+                            full_network = reaches_direction_latlon)
+
+  ##### visuals ######
+  out/plots/longest_reaches_plots.zip.ind:
+    command: make_site_reach_plots(outind = target_name,
+                                   reaches_to_check = reaches_to_check,
+                                   network_latlon = reaches_direction_latlon,
+                                   category = I('longest_reaches'),
+                                   'R/plot_tasks.R',
+                                   'R/match_sites_reaches.R')
+
+  out/plots/shortest_reaches_plots.zip.ind:
+    command: make_site_reach_plots(outind = target_name,
+                                   reaches_to_check = reaches_to_check,
+                                   network_latlon = reaches_direction_latlon,
+                                   category = I('shortest_reaches'),
+                                   'R/plot_tasks.R',
+                                   'R/match_sites_reaches.R')
+
+  out/plots/most_sites_reaches_plots.zip.ind:
+    command: make_site_reach_plots(outind = target_name,
+                                   reaches_to_check = reaches_to_check,
+                                   network_latlon = reaches_direction_latlon,
+                                   category = I('most_sites_reaches'),
+                                   'R/plot_tasks.R',
+                                   'R/visuals.R',
+                                   'R/match_sites_reaches.R')
+
+  out/plots/random_site_reaches_plots.zip.ind:
+    command: make_site_reach_plots(outind = target_name,
+                                   reaches_to_check = reaches_to_check,
+                                   network_latlon = reaches_direction_latlon,
+                                   category = I('random_site_reaches'),
+                                   'R/plot_tasks.R',
+                                   'R/match_sites_reaches.R')
+  out/plots/site_reach_distances.png.ind:
+    command: site_reach_distance_plot(target_name,
+                                      sites_reaches_ind = 'out/site_flowlines.rds.ind')
+  
+  out/plots/sites_per_reach.png.ind:
+    command: sites_per_reach_plot(target_name,
+                                      sites_reaches_ind = 'out/site_flowlines.rds.ind')
+  out/plots/site_distance_vs_reach_length.png.ind:
+    command: distance_vs_reach_length_plot(target_name,
+                                          sites_reaches_ind = 'out/site_flowlines.rds.ind')
+
+  out/plots/order_one_reaches_plots.zip.ind:
+    command: make_site_reach_plots(outind = target_name,
+                                   reaches_to_check = reaches_to_check,
+                                   network_latlon = reaches_direction_latlon,
+                                   category = I('order_one_reaches'),
+                                   'R/plot_tasks.R',
+                                   'R/match_sites_reaches.R')
