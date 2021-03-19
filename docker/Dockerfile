@@ -1,5 +1,4 @@
-#4.03 Rstudio has permission issues in Singularity
-FROM rocker/geospatial:4.0.2 
+FROM rocker/geospatial:4.0.4 
 
 #add additional R packages to install here:
 RUN install2.r --error \
@@ -9,7 +8,9 @@ RUN install2.r --error \
   aws.signature \
   aws.s3 \
   pryr \
-  dataRetrieval
+  dataRetrieval \
+  DiagrammeR \
+  hexbin
 
 RUN Rscript -e 'remotes::install_github("richfitz/remake"); remotes::install_github("USGS-R/scipiper")'
 

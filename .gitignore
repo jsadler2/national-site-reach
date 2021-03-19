@@ -6,11 +6,12 @@
 slurm_output/*
 .mytmp/*
 .myrun/*
+.myvar/*
 in/NHDPlusNationalData/*
 in/*.7z
 in/*.rds
 out/*.rds
 .remake/*
-.myvar/*
 *.ind
 cluster_out.txt
+in/wbdhu4_a_us_september2020.gdb/*
