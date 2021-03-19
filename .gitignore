@@ -8,3 +8,4 @@ slurm_output/*
 .myrun/*
 in/NHDPlusNationalData/*
 in/*.7z
+in/wbdhu4_a_us_september2020.gdb/*

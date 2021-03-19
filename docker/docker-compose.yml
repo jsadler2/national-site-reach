@@ -1,7 +1,7 @@
 version: "3.1" 
 services:
   glm_test:
-    image: wdwatkins/national_site_reach:v0.1
+    image: wdwatkins/national_site_reach:v0.2
     build:
       context: .
     ports:
