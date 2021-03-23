@@ -34,7 +34,7 @@ This pipeline is written to be run on HPC platforms, so no cache sharing was imp
 
 
 ## Interchangeable parts
-[image](pipeline_diagram.png)
+![image](pipeline_diagram.png)
 ### To run on a new basin
 Swap out the basin HUC codes (can be any HUC level, although a single large HUC2 will take a while), and switch the basin footprint shapefile.  The basin footprint could likely be automated by pulling in a database of HUC2/HUC4s into the pipeline. 
 
