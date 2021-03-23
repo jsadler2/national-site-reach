@@ -36,6 +36,24 @@ targets:
       seg_id_to_plot = I('1231205'),
       category = I('most_sites_reaches'))
 
+  # --- 1314633 --- #
+  
+  out/plots/most_sites_reaches_1314633_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1314633'),
+      category = I('most_sites_reaches'))
+
+  # --- 1319752 --- #
+  
+  out/plots/most_sites_reaches_1319752_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1319752'),
+      category = I('most_sites_reaches'))
+
   # --- 1319426 --- #
   
   out/plots/most_sites_reaches_1319426_plot.png:
@@ -221,6 +239,8 @@ targets:
   most_sites_reaches_plots.zip.ind_promise:
     command: zip_up_plots(I('out/plots/most_sites_reaches_plots.zip.ind'),
       'out/plots/most_sites_reaches_1231205_plot.png',
+      'out/plots/most_sites_reaches_1314633_plot.png',
+      'out/plots/most_sites_reaches_1319752_plot.png',
       'out/plots/most_sites_reaches_1319426_plot.png',
       'out/plots/most_sites_reaches_3176490_plot.png',
       'out/plots/most_sites_reaches_1231609_plot.png',

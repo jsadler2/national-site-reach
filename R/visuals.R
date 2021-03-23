@@ -30,7 +30,6 @@ plot_reach_and_matched_sites <- function(outfile, reach_and_sites, network_latlo
   # some troubleshooting
   offset <- ifelse(reach_bbox[['top']]-reach_bbox[['bottom']] < 0.3, 0.09, offset)
   scale_dist <- ceiling(unique(round(reach_and_sites$shape_length))/20000)
-  
   final_map1 <- ggmap(base_map) +
     geom_sf(data = reaches_clipped_latlon, inherit.aes = FALSE) +
     geom_sf(data=reach_latlon, inherit.aes = FALSE,

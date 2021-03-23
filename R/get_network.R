@@ -71,8 +71,9 @@ filter_rename_nhdplus <- function(in_ind, out_ind, huc_stem_patterns = NULL) {
     mutate(shape_length = LENGTHKM * 1000) %>% 
     st_transform(crs = 'ESRI:102039') #Reproject to USGS proj, same as geofabric
   if(!is.null(huc_stem_patterns)) {
+    huc_stem_regex <- paste0('^', huc_stem_patterns, collapse = '|')
     out_network <- out_network %>% 
-      filter(stringr::str_starts(string = REACHCODE, pattern = huc_stem_patterns))
+      filter(grepl(pattern = huc_stem_regex, x = REACHCODE))
   }
   saveRDS(out_network, as_data_file(out_ind))
   sc_indicate(out_ind)

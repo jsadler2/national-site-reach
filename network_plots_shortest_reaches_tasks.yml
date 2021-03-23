@@ -80,6 +80,15 @@ targets:
       seg_id_to_plot = I('3232877'),
       category = I('shortest_reaches'))
 
+  # --- 3175078 --- #
+  
+  out/plots/shortest_reaches_3175078_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3175078'),
+      category = I('shortest_reaches'))
+
   # --- 1314783 --- #
   
   out/plots/shortest_reaches_1314783_plot.png:
@@ -107,13 +116,13 @@ targets:
       seg_id_to_plot = I('3231093'),
       category = I('shortest_reaches'))
 
-  # --- 3254081 --- #
+  # --- 1312987 --- #
   
-  out/plots/shortest_reaches_3254081_plot.png:
+  out/plots/shortest_reaches_1312987_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('3254081'),
+      seg_id_to_plot = I('1312987'),
       category = I('shortest_reaches'))
 
   # --- 3178378 --- #
@@ -123,15 +132,6 @@ targets:
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
       seg_id_to_plot = I('3178378'),
-      category = I('shortest_reaches'))
-
-  # --- 3233483 --- #
-  
-  out/plots/shortest_reaches_3233483_plot.png:
-    command: subset_and_plot_reach(outfile = target_name,
-      reach_and_sites = 'out/site_flowlines.rds.ind',
-      network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('3233483'),
       category = I('shortest_reaches'))
 
   # --- 1234037 --- #
@@ -153,11 +153,11 @@ targets:
       'out/plots/shortest_reaches_3232861_plot.png',
       'out/plots/shortest_reaches_1336650_plot.png',
       'out/plots/shortest_reaches_3232877_plot.png',
+      'out/plots/shortest_reaches_3175078_plot.png',
       'out/plots/shortest_reaches_1314783_plot.png',
       'out/plots/shortest_reaches_3232913_plot.png',
       'out/plots/shortest_reaches_3231093_plot.png',
-      'out/plots/shortest_reaches_3254081_plot.png',
+      'out/plots/shortest_reaches_1312987_plot.png',
       'out/plots/shortest_reaches_3178378_plot.png',
-      'out/plots/shortest_reaches_3233483_plot.png',
       'out/plots/shortest_reaches_1234037_plot.png')
     

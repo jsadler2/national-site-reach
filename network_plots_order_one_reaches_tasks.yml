@@ -26,31 +26,22 @@ targets:
     depends:
       - order_one_reaches_plots.zip.ind_promise
 
-  # --- 1327433 --- #
+  # --- 1234503 --- #
   
-  out/plots/order_one_reaches_1327433_plot.png:
+  out/plots/order_one_reaches_1234503_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('1327433'),
+      seg_id_to_plot = I('1234503'),
       category = I('order_one_reaches'))
 
-  # --- 9770360 --- #
+  # --- 3178102 --- #
   
-  out/plots/order_one_reaches_9770360_plot.png:
+  out/plots/order_one_reaches_3178102_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('9770360'),
-      category = I('order_one_reaches'))
-
-  # --- 24650345 --- #
-  
-  out/plots/order_one_reaches_24650345_plot.png:
-    command: subset_and_plot_reach(outfile = target_name,
-      reach_and_sites = 'out/site_flowlines.rds.ind',
-      network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('24650345'),
+      seg_id_to_plot = I('3178102'),
       category = I('order_one_reaches'))
 
   # --- 3255293 --- #
@@ -62,6 +53,15 @@ targets:
       seg_id_to_plot = I('3255293'),
       category = I('order_one_reaches'))
 
+  # --- 9769460 --- #
+  
+  out/plots/order_one_reaches_9769460_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('9769460'),
+      category = I('order_one_reaches'))
+
   # --- 9769076 --- #
   
   out/plots/order_one_reaches_9769076_plot.png:
@@ -71,67 +71,121 @@ targets:
       seg_id_to_plot = I('9769076'),
       category = I('order_one_reaches'))
 
-  # --- 3175508 --- #
+  # --- 3252169 --- #
   
-  out/plots/order_one_reaches_3175508_plot.png:
+  out/plots/order_one_reaches_3252169_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('3175508'),
+      seg_id_to_plot = I('3252169'),
       category = I('order_one_reaches'))
 
-  # --- 1314063 --- #
+  # --- 9773111 --- #
   
-  out/plots/order_one_reaches_1314063_plot.png:
+  out/plots/order_one_reaches_9773111_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('1314063'),
+      seg_id_to_plot = I('9773111'),
       category = I('order_one_reaches'))
 
-  # --- 1254588 --- #
+  # --- 1332238 --- #
   
-  out/plots/order_one_reaches_1254588_plot.png:
+  out/plots/order_one_reaches_1332238_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('1254588'),
+      seg_id_to_plot = I('1332238'),
       category = I('order_one_reaches'))
 
-  # --- 1254216 --- #
+  # --- 1336614 --- #
   
-  out/plots/order_one_reaches_1254216_plot.png:
+  out/plots/order_one_reaches_1336614_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('1254216'),
+      seg_id_to_plot = I('1336614'),
       category = I('order_one_reaches'))
 
-  # --- 1231879 --- #
+  # --- 3180904 --- #
   
-  out/plots/order_one_reaches_1231879_plot.png:
+  out/plots/order_one_reaches_3180904_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('1231879'),
+      seg_id_to_plot = I('3180904'),
       category = I('order_one_reaches'))
 
-  # --- 3251937 --- #
+  # --- 1255370 --- #
   
-  out/plots/order_one_reaches_3251937_plot.png:
+  out/plots/order_one_reaches_1255370_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('3251937'),
+      seg_id_to_plot = I('1255370'),
       category = I('order_one_reaches'))
 
-  # --- 3252155 --- #
+  # --- 3179330 --- #
   
-  out/plots/order_one_reaches_3252155_plot.png:
+  out/plots/order_one_reaches_3179330_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('3252155'),
+      seg_id_to_plot = I('3179330'),
+      category = I('order_one_reaches'))
+
+  # --- 3253367 --- #
+  
+  out/plots/order_one_reaches_3253367_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3253367'),
+      category = I('order_one_reaches'))
+
+  # --- 3251943 --- #
+  
+  out/plots/order_one_reaches_3251943_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('3251943'),
+      category = I('order_one_reaches'))
+
+  # --- 1232667 --- #
+  
+  out/plots/order_one_reaches_1232667_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1232667'),
+      category = I('order_one_reaches'))
+
+  # --- 1233941 --- #
+  
+  out/plots/order_one_reaches_1233941_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1233941'),
+      category = I('order_one_reaches'))
+
+  # --- 1234025 --- #
+  
+  out/plots/order_one_reaches_1234025_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1234025'),
+      category = I('order_one_reaches'))
+
+  # --- 1332200 --- #
+  
+  out/plots/order_one_reaches_1332200_plot.png:
+    command: subset_and_plot_reach(outfile = target_name,
+      reach_and_sites = 'out/site_flowlines.rds.ind',
+      network_latlon = reaches_direction_latlon,
+      seg_id_to_plot = I('1332200'),
       category = I('order_one_reaches'))
 
   # --- 1314075 --- #
@@ -143,51 +197,37 @@ targets:
       seg_id_to_plot = I('1314075'),
       category = I('order_one_reaches'))
 
-  # --- 1253782 --- #
+  # --- 1326967 --- #
   
-  out/plots/order_one_reaches_1253782_plot.png:
+  out/plots/order_one_reaches_1326967_plot.png:
     command: subset_and_plot_reach(outfile = target_name,
       reach_and_sites = 'out/site_flowlines.rds.ind',
       network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('1253782'),
-      category = I('order_one_reaches'))
-
-  # --- 1337762 --- #
-  
-  out/plots/order_one_reaches_1337762_plot.png:
-    command: subset_and_plot_reach(outfile = target_name,
-      reach_and_sites = 'out/site_flowlines.rds.ind',
-      network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('1337762'),
-      category = I('order_one_reaches'))
-
-  # --- 1239389 --- #
-  
-  out/plots/order_one_reaches_1239389_plot.png:
-    command: subset_and_plot_reach(outfile = target_name,
-      reach_and_sites = 'out/site_flowlines.rds.ind',
-      network_latlon = reaches_direction_latlon,
-      seg_id_to_plot = I('1239389'),
+      seg_id_to_plot = I('1326967'),
       category = I('order_one_reaches'))
 
   # --- Overall job --- #
 
   order_one_reaches_plots.zip.ind_promise:
     command: zip_up_plots(I('out/plots/order_one_reaches_plots.zip.ind'),
-      'out/plots/order_one_reaches_1327433_plot.png',
-      'out/plots/order_one_reaches_9770360_plot.png',
-      'out/plots/order_one_reaches_24650345_plot.png',
+      'out/plots/order_one_reaches_1234503_plot.png',
+      'out/plots/order_one_reaches_3178102_plot.png',
       'out/plots/order_one_reaches_3255293_plot.png',
+      'out/plots/order_one_reaches_9769460_plot.png',
       'out/plots/order_one_reaches_9769076_plot.png',
-      'out/plots/order_one_reaches_3175508_plot.png',
-      'out/plots/order_one_reaches_1314063_plot.png',
-      'out/plots/order_one_reaches_1254588_plot.png',
-      'out/plots/order_one_reaches_1254216_plot.png',
-      'out/plots/order_one_reaches_1231879_plot.png',
-      'out/plots/order_one_reaches_3251937_plot.png',
-      'out/plots/order_one_reaches_3252155_plot.png',
+      'out/plots/order_one_reaches_3252169_plot.png',
+      'out/plots/order_one_reaches_9773111_plot.png',
+      'out/plots/order_one_reaches_1332238_plot.png',
+      'out/plots/order_one_reaches_1336614_plot.png',
+      'out/plots/order_one_reaches_3180904_plot.png',
+      'out/plots/order_one_reaches_1255370_plot.png',
+      'out/plots/order_one_reaches_3179330_plot.png',
+      'out/plots/order_one_reaches_3253367_plot.png',
+      'out/plots/order_one_reaches_3251943_plot.png',
+      'out/plots/order_one_reaches_1232667_plot.png',
+      'out/plots/order_one_reaches_1233941_plot.png',
+      'out/plots/order_one_reaches_1234025_plot.png',
+      'out/plots/order_one_reaches_1332200_plot.png',
       'out/plots/order_one_reaches_1314075_plot.png',
-      'out/plots/order_one_reaches_1253782_plot.png',
-      'out/plots/order_one_reaches_1337762_plot.png',
-      'out/plots/order_one_reaches_1239389_plot.png')
+      'out/plots/order_one_reaches_1326967_plot.png')
     

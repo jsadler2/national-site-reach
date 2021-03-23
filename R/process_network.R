@@ -104,3 +104,9 @@ compute_up_down_stream_endpoints <- function(reaches_bounded_ind, out_ind,
   sc_indicate(out_ind)
 }
 
+transform_network_file <- function(network_ind, crs) {
+  network <- readRDS(as_data_file(network_ind))
+  network$Shape <- st_transform(network$Shape, crs)
+  return(network)
+}
+
