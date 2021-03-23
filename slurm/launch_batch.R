@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH -J site_reach_batch
-#SBATCH -t 20:00               # time
+#SBATCH -t 3:00:00               # time
 #SBATCH -o slurm_output/batch_%j.out
-#SBATCH -p normal,UV,short
+#SBATCH -p normal,UV
 #SBATCH -A iidd          # your account code
 #SBATCH -n 1
 #SBATCH -c 11
@@ -13,5 +13,5 @@
 module load singularity/3.4.1
 
 srun singularity exec --bind=/cxfs national_site_reach_v0.2.sif \
-  Rscript -e 'library(scipiper); scmake("out/reach_endpoints.rds.ind", force = TRUE)'
+  Rscript -e 'library(scipiper); scmake("all_plots")'
 
