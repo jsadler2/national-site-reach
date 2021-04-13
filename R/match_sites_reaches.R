@@ -36,8 +36,11 @@ get_site_flowlines <- function(outind, reaches_direction_ind, sites, search_radi
   #rejoin to original reaches df, get up/downstream distance
   flowline_indices_joined <- flowline_indices %>%
     rename(seg_id = COMID) %>%
-    left_join(reaches_unique, by = c("seg_id")) %>%
+    left_join(reaches_unique, by = c("seg_id")) %>% 
+    #select only needed fields here, so they are not duplicated later after 
+    #checking dist to upstream and joining again to seg_id_reassign
     left_join(sites_sf_index, by = c(id = "index")) %>%
+    select(id, seg_id, Shape, Shape_site, up_point, down_point, offset) %>%
     mutate(site_upstream_distance = st_distance(x = Shape_site, y = up_point,
                                                 by_element = TRUE),
            site_downstream_distance = st_distance(x = Shape_site, y = down_point,
