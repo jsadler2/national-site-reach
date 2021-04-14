@@ -60,6 +60,8 @@ summarize_plots <- function(...) {
 zip_up_plots <- function(zip_ind, ...) {
   dots <- list(...)
   png_dots <- dots[purrr::map_lgl(dots, grepl, pattern = ".png")]
-  zip(as_data_file(zip_ind), files = unlist(png_dots))
+  zip_file <- as_data_file(zip_ind)
+  unlink(zip_file) #prevent appending to existing zip file
+  zip(zip_file, files = unlist(png_dots))
   sc_indicate(zip_ind)
 }
